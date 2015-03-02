@@ -3,7 +3,7 @@
 // Date:         March 13 2015
 // Authors:      Angel Lopez, Arminda Estrada, Rubi Ballesteros, Miguel Garcia, Phillip Showers.
 //
-// Description: 
+// Description: This is part one of Lab 2. 
 // ******************************************************************************************* //
 
 #include "p24fj64ga002.h"
