@@ -13,6 +13,3 @@ void moveCursorLCD(unsigned char x, unsigned char y);
 void printCharLCD(char c);
 void printStringLCD(const char* s);
 void testLCD();
-void lcdRunState();
-void lcdStopState();
-void getTimeString();

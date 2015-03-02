@@ -26,6 +26,7 @@ typedef enum stateTypeEnum
 }stateType;
 
 volatile stateType curState;
+char keyToWrite = -1;
 
 int main(void)
 {
@@ -33,7 +34,7 @@ int main(void)
     initLCD();
     moveCursorLCD(0,0);
     curState = wait;
-    char keyToWrite = -1;
+    
 
     while(1){
         switch (curState)
@@ -48,7 +49,7 @@ int main(void)
 
             case writeLCD:
                 if (keyToWrite != -1){
-                    printStringLCD(&keyToWrite);
+                    printCharLCD(keyToWrite);
                 }
                 curState = wait;
                 break;
