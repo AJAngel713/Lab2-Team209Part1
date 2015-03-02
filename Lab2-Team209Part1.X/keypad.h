@@ -23,9 +23,9 @@
 #define ROW4 LATBbits.LATB3 // Pin 7
 
 //COLUMNS --------------------------- READ ONLY!!!!!
-#define COLUMN1 PORTBbits.RB9  // Pin 18
-#define COLUMN2 PORTBbits.RB10 // Pin 21
-#define COLUMN3 PORTBbits.RB11 // Pin 22
+#define COL1 PORTBbits.RB9  // Pin 18
+#define COL2 PORTBbits.RB10 // Pin 21
+#define COL3 PORTBbits.RB11 // Pin 22
 
 
 void initKeypad(void);

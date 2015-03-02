@@ -40,6 +40,7 @@ void initKeypad(void){
     CNEN1bits.CN15IE = 1; // Pin 22
 
 
+
 }
 
 /* This function will be called AFTER you have determined that someone pressed
@@ -50,18 +51,76 @@ void initKeypad(void){
  */
 char scanKeypad(void){
     char key = -1;
+    /*
     char keys[ROWS][COLUMNS] = {
     {'1','2','3'},
     {'4','5','6'},
     {'7','8','9'},
     {'*','0','#'}
     };
+     */
+    int numKeyPress = 0;
 
     ROW1 = 0;
+    if (COL1 == 0){
+        key = '1';
+        numKeyPress++;
+    }
+    if(COL2 == 0){
+        key = '2';
+        numKeyPress++;
+    }
+    if(COL3 == 0){
+        key = '3';
+        numKeyPress++;
+    }
+    ROW1 = 1;
     ROW2 = 0;
+    if (COL1 == 0){
+        key = '4';
+        numKeyPress++;
+    }
+    if(COL2 == 0){
+        key = '5';
+        numKeyPress++;
+    }
+    if(COL3 == 0){
+        key = '6';
+        numKeyPress++;
+    }
+    ROW2 = 1;
     ROW3 = 0;
+    if (COL1 == 0){
+        key = '7';
+        numKeyPress++;
+    }
+    if(COL2 == 0){
+        key = '8';
+        numKeyPress++;
+    }
+    if(COL3 == 0){
+        key = '9';
+        numKeyPress++;
+    }
+    ROW3 = 1;
     ROW4 = 0;
-    
+    if (COL1 == 0){
+        key = '*';
+        numKeyPress++;
+    }
+    if(COL2 == 0){
+        key = '0';
+        numKeyPress++;
+    }
+    if(COL3 == 0){
+        key = '#';
+        numKeyPress++;
+    }
+    ROW4 = 1;
+
+    if(numKeyPress > 1){
+        return -1;
+    }
 
     return key;
 }
