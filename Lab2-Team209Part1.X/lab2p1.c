@@ -18,42 +18,53 @@ _CONFIG1( JTAGEN_OFF & GCP_OFF & GWRP_OFF & BKBUG_ON & COE_OFF & ICS_PGx1 &
 _CONFIG2( IESO_OFF & SOSCSEL_SOSC & WUTSEL_LEG & FNOSC_PRIPLL & FCKSM_CSDCMD & OSCIOFNC_OFF &
           IOL1WAY_OFF & I2C1SEL_PRI & POSCMOD_XT )
 
-          typedef enum states{
-    wait, keyFind, writeLCD
-}states;
+typedef enum stateTypeEnum
+{
+    wait,
+    keyFind,
+    writeLCD
+}stateType;
 
-volatile states curState;
+volatile stateType curState;
 
 int main(void)
 {
     initKeypad();
     initLCD();
-    initTimer1();
-
+    moveCursorLCD(0,0);
     curState = wait;
+    char keyToWrite = -1;
 
     while(1){
         switch (curState)
         {
             case wait:
-            break;
-
-            case keyFind:
-                scanKeypad();
                 break;
 
-        }
-        
-    }
+            case keyFind:
+                keyToWrite = scanKeypad();
+                curState = writeLCD;
+                break;
+
+            case writeLCD:
+                if (keyToWrite != -1){
+                    printStringLCD(&keyToWrite);
+                }
+                curState = wait;
+                break;
+
+        } // switch
+    } // while
     
     return 0;
 }
 
 void _ISR _CNInterrupt(){
     _CNIF = 0;
+    delayMs(5);
 
     if (curState == wait){
         curState = keyFind;
     }
 
-}
+} // _CNInterrupt

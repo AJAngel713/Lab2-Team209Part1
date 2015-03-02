@@ -7,25 +7,38 @@
  */
 void initKeypad(void){
 
-    // Rows
-    TRISAbits.TRISA0 = OUTPUT; //  row 1, output
-    TRISAbits.TRISA1 = OUTPUT; // row 2 , output
-    TRISBbits.TRISB9 = OUTPUT; // row 3 , output
-    TRISBbits.TRISB8 = OUTPUT; // row 4 output
+    /*
+     Inputs: RB9/Pin 18, RB10/Pin 21, RB11/Pin 22
+     Ouputs: RA0/Pin 2, RA1/Pin 3, RB2/Pin 6, RB3/Pin 7
+     */
+
+    // ROWS
+    TRISAbits.TRISA0 = OUTPUT; // row 1, output. Pin 2
+    TRISAbits.TRISA1 = OUTPUT; // row 2, output. Pin 3
+    TRISBbits.TRISB2 = OUTPUT; // row 3, output. Pin 6
+    TRISBbits.TRISB3 = OUTPUT; // row 4, output. Pin 7
 
     ODCAbits.ODA0 = 1; // Open Drain collecctor for pins 2, 3, 6, 7 
     ODCAbits.ODA1 = 1;
     ODCBbits.ODB2 = 1;
     ODCBbits.ODB3 = 1;
     
-    // Columns
-    TRISAbits.TRISA0 = 1; // column 1, input
-    TRISAbits.TRISA1 = 1; // column 2 , input
-    TRISBbits.TRISB2 = 1; // column 3 , input
+    // COLUMNS
+    TRISBbits.TRISB9 = INPUT; // column 1, input. Pin 18
+    TRISBbits.TRISB10 = INPUT; // column 2, input. Pin 21
+    TRISBbits.TRISB11 = INPUT; // column 3, input. Pin 22
 
-    CNPU2bits.CN21PUE = 1; // pull up resistor for columns
+    CNPU2bits.CN21PUE = 1; // pull up resistor for columns. Pins 18, 21, 22
     CNPU2bits.CN16PUE = 1;
     CNPU1bits.CN15PUE = 1;
+
+    IFS1BITS.CNIF = 0;     // Interrupt Flag pulled down.
+    IEC1BITS.CNIE = 1;     // Enable change notification interrupt.
+
+    CNEN2bits.CN21IE = 1; // Pin 18 Change Notification Interrupt Enable for each input pin.
+    CNEN2bits.CN16IE = 1; // Pin 21
+    CNEN1bits.CN15IE = 1; // Pin 22
+
 
 }
 
@@ -44,6 +57,10 @@ char scanKeypad(void){
     {'*','0','#'}
     };
 
+    ROW1 = 0;
+    ROW2 = 0;
+    ROW3 = 0;
+    ROW4 = 0;
     
 
     return key;
