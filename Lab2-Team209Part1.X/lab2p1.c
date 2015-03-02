@@ -1,7 +1,7 @@
 // ******************************************************************************************* //
 // File:         lab2p1.c
-// Date:         
-// Authors:      
+// Date:         March 13 2015
+// Authors:      Angel Lopez, Arminda Estrada, Rubi Ballesteros, Miguel Garcia, Phillip Showers.
 //
 // Description: 
 // ******************************************************************************************* //
