@@ -32,8 +32,8 @@ void initKeypad(void){
     CNPU2bits.CN16PUE = 1;
     CNPU1bits.CN15PUE = 1;
 
-    IFS1BITS.CNIF = 0;     // Interrupt Flag pulled down.
-    IEC1BITS.CNIE = 1;     // Enable change notification interrupt.
+    IFS1bits.CNIF = 0;     // Interrupt Flag pulled down.
+    IEC1bits.CNIE = 1;     // Enable change notification interrupt.
 
     CNEN2bits.CN21IE = 1; // Pin 18 Change Notification Interrupt Enable for each input pin.
     CNEN2bits.CN16IE = 1; // Pin 21
@@ -62,9 +62,17 @@ char scanKeypad(void){
     int numKeyPress = 0;
 
     ROW1 = 0;
+    ROW2 = 1;
+    ROW3 = 1;
+    ROW4 = 1;
+
+    delayMs(10); // delay to set row value
+
     if (COL1 == 0){
-        key = '1';
-        numKeyPress++;
+        if (ROW1 == 0){
+            key = '1';
+            numKeyPress++;
+        }
     }
     if(COL2 == 0){
         key = '2';
@@ -74,8 +82,11 @@ char scanKeypad(void){
         key = '3';
         numKeyPress++;
     }
+
     ROW1 = 1;
     ROW2 = 0;
+    delayMs(10); // delay to set row value
+    
     if (COL1 == 0){
         key = '4';
         numKeyPress++;
@@ -88,8 +99,11 @@ char scanKeypad(void){
         key = '6';
         numKeyPress++;
     }
+
     ROW2 = 1;
     ROW3 = 0;
+    delayMs(10); // delay to set row value
+    
     if (COL1 == 0){
         key = '7';
         numKeyPress++;
@@ -102,8 +116,11 @@ char scanKeypad(void){
         key = '9';
         numKeyPress++;
     }
+
     ROW3 = 1;
     ROW4 = 0;
+    delayMs(10); // delay to set row value
+
     if (COL1 == 0){
         key = '*';
         numKeyPress++;
@@ -117,6 +134,7 @@ char scanKeypad(void){
         numKeyPress++;
     }
     ROW4 = 1;
+    delayMs(10); // delay to set row value
 
     if(numKeyPress > 1){
         return -1;

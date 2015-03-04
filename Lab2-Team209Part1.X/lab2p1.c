@@ -22,7 +22,7 @@ typedef enum stateTypeEnum
 {
     wait,
     keyFind,
-    writeLCD
+    writeLCDs
 }stateType;
 
 volatile stateType curState;
@@ -43,11 +43,12 @@ int main(void)
                 break;
 
             case keyFind:
+
                 keyToWrite = scanKeypad();
-                curState = writeLCD;
+                curState = writeLCDs;
                 break;
 
-            case writeLCD:
+            case writeLCDs:
                 if (keyToWrite != -1){
                     printCharLCD(keyToWrite);
                 }
@@ -62,8 +63,9 @@ int main(void)
 
 void _ISR _CNInterrupt(){
     _CNIF = 0;
-    delayMs(5);
+    delayMs(5); //press/release delay
 
+ 
     if (curState == wait){
         curState = keyFind;
     }
