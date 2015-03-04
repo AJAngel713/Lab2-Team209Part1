@@ -125,7 +125,7 @@ char scanKeypad(void){
         key = '*';
         numKeyPress++;
     }
-    if(COL2 == 0){
+     if(COL2 == 0){
         key = '0';
         numKeyPress++;
     }
