@@ -33,11 +33,12 @@ void initKeypad(void){
     CNPU1bits.CN15PUE = 1;
 
     IFS1bits.CNIF = 0;     // Interrupt Flag pulled down.
-    IEC1bits.CNIE = 1;     // Enable change notification interrupt.
 
     CNEN2bits.CN21IE = 1; // Pin 18 Change Notification Interrupt Enable for each input pin.
     CNEN2bits.CN16IE = 1; // Pin 21
     CNEN1bits.CN15IE = 1; // Pin 22
+
+    IEC1bits.CNIE = 1;     // Enable change notification interrupt.
 
 
 
@@ -69,10 +70,8 @@ char scanKeypad(void){
     delayMs(10); // delay to set row value
 
     if (COL1 == 0){
-        if (ROW1 == 0){
-            key = '1';
-            numKeyPress++;
-        }
+        key = '1';
+        numKeyPress++;
     }
     if(COL2 == 0){
         key = '2';
@@ -133,6 +132,9 @@ char scanKeypad(void){
         key = '#';
         numKeyPress++;
     }
+    ROW1 = 1;
+    ROW2 = 1;
+    ROW3 = 1;
     ROW4 = 1;
     delayMs(10); // delay to set row value
 

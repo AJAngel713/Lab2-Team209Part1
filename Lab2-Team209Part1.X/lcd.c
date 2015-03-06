@@ -130,7 +130,7 @@ void printStringLCD(const char* s)
     while( s[i] != '\0')
     {
        printCharLCD(s[i]);
-       i ++;
+       i++;
     }
 }
 
@@ -157,4 +157,21 @@ if( x == 1)
 // writeLCD(ddAddress,LCD_WRITE_CONTROL, 40);
 /*NOTE: If the above IF statement does not work, the commented section below will work for where to set the cursor.*/
     writeLCD(0xC0,LCD_WRITE_CONTROL, 40); //This will move the cursor to the second row for the Timer display.
+}
+
+void clearPrintStringLCD(const char* s){
+    clearLCD();
+    int i = 0;
+    while( s[i] != '\0')
+    {
+        if (i != 8){
+            printCharLCD(s[i]);
+            i++;
+        }
+        else{
+            moveCursorLCD(1,0);
+            printCharLCD(s[i]);
+            i++;
+        }
+    }
 }

@@ -27,12 +27,15 @@ typedef enum stateTypeEnum
 
 volatile stateType curState;
 char keyToWrite = -1;
+char keys[17] = {-1,'\0','\0','\0','\0','\0','\0','\0',
+                '\0','\0','\0','\0','\0','\0','\0','\0','\0'};
+int keysIndex = 0;
 
 int main(void)
 {
     initKeypad();
     initLCD();
-    moveCursorLCD(0,0);
+    clearLCD();
     curState = wait;
     
 
@@ -43,14 +46,20 @@ int main(void)
                 break;
 
             case keyFind:
-
-                keyToWrite = scanKeypad();
+                keys[keysIndex] = scanKeypad();
+                keysIndex++;
                 curState = writeLCDs;
                 break;
 
             case writeLCDs:
-                if (keyToWrite != -1){
-                    printCharLCD(keyToWrite);
+                if (keys[keysIndex] != -1){
+                    clearPrintStringLCD(keys);
+                    if (keysIndex == 16) keysIndex = 0;
+//                    printCharLCD(keyToWrite);
+                }
+                else{
+                    if (keysIndex != 0)
+                    keysIndex--;
                 }
                 curState = wait;
                 break;
@@ -63,10 +72,11 @@ int main(void)
 
 void _ISR _CNInterrupt(){
     _CNIF = 0;
-    delayMs(5); //press/release delay
+    delayMs(10); //press/release delay
 
  
     if (curState == wait){
+        if (COL1 == 0 || COL2 == 0 || COL3 == 0)
         curState = keyFind;
     }
 
