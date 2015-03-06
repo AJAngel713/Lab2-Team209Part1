@@ -15,8 +15,6 @@
 #define OUTPUT 0
 
 // ROWS   --------------------------- WRITE ONLY!!!!!
-//#define ROW1 LATBbits.LATB0 // Pin 2
-//#define ROW2 LATBbits.LATB1 // Pin 3
 #define ROW1 LATAbits.LATA0 // Pin 2
 #define ROW2 LATAbits.LATA1 // Pin 3
 #define ROW3 LATBbits.LATB2 // Pin 6
@@ -27,8 +25,14 @@
 #define COL2 PORTBbits.RB10 // Pin 21
 #define COL3 PORTBbits.RB11 // Pin 22
 
-
+/*
+ Initializes the keypad.
+ */
 void initKeypad(void);
+
+/*
+ Scans the keypad. Returns the key that was presses or -1 if no, or more than one keys are pressed.
+ */
 char scanKeypad(void);
 
 
