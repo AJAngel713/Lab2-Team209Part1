@@ -18,10 +18,21 @@ void initKeypad(void){
     TRISBbits.TRISB2 = OUTPUT; // row 3, output. Pin 6
     TRISBbits.TRISB3 = OUTPUT; // row 4, output. Pin 7
 
-    ODCAbits.ODA0 = 1; // Open Drain collecctor for pins 2, 3, 6, 7 
+//    TRISAbits.TRISA2 = OUTPUT; // row 1, output. Pin 2
+//    TRISAbits.TRISA3 = OUTPUT; // row 2, output. Pin 3
+//    TRISBbits.TRISB0 = OUTPUT;
+//    TRISBbits.TRISB1 = OUTPUT;
+
+    ODCAbits.ODA0 = 1; // Open Drain collecctor for pins 2, 3, 6, 7
     ODCAbits.ODA1 = 1;
     ODCBbits.ODB2 = 1;
     ODCBbits.ODB3 = 1;
+
+//    ODCAbits.ODA2 = 1;
+//    ODCAbits.ODA3 = 1;
+
+//    ODCBbits.ODB0 = 1;
+//    ODCBbits.ODB1 = 1;
     
     // COLUMNS
     TRISBbits.TRISB9 = INPUT; // column 1, input. Pin 18
@@ -132,14 +143,14 @@ char scanKeypad(void){
         key = '#';
         numKeyPress++;
     }
-    ROW1 = 1;
-    ROW2 = 1;
-    ROW3 = 1;
-    ROW4 = 1;
+    ROW1 = 0;
+    ROW2 = 0;
+    ROW3 = 0;
+    ROW4 = 0;
     delayMs(10); // delay to set row value
 
     if(numKeyPress > 1){
-        return -1;
+        key = -1;
     }
 
     return key;

@@ -25,11 +25,11 @@ Command:
   build/default/debug/lcd.o \
   build/default/debug/timer.o \
   build/default/debug/lab2p1.o \
-  -TC:\Users\AJAngel\AppData\Local\Temp\tmp00000ef0.00 \
-  -TC:\Users\AJAngel\AppData\Local\Temp\tmp00000ef0.01 \
-  -TC:\Users\AJAngel\AppData\Local\Temp\tmp00000ef0.02 \
-  -TC:\Users\AJAngel\AppData\Local\Temp\tmp00000ef0.03 \
-  -TC:\Users\AJAngel\AppData\Local\Temp\tmp00000ef0.04 \
+  -TC:\Users\AJAngel\AppData\Local\Temp\tmp00001330.00 \
+  -TC:\Users\AJAngel\AppData\Local\Temp\tmp00001330.01 \
+  -TC:\Users\AJAngel\AppData\Local\Temp\tmp00001330.02 \
+  -TC:\Users\AJAngel\AppData\Local\Temp\tmp00001330.03 \
+  -TC:\Users\AJAngel\AppData\Local\Temp\tmp00001330.04 \
   --defsym=__MPLAB_BUILD=1 \
   --defsym=__MPLAB_DEBUG=1 \
   --defsym=__DEBUG=1 \
@@ -67,10 +67,10 @@ Program Memory  [Origin = 0x200, Length = 0xa9fc]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0x9e            0xed  (237)
-.text                        0x29e               0x3bc           0x59a  (1434)
-.dinit                       0x65a                0x1a            0x27  (39)
+.text                        0x29e               0x444           0x666  (1638)
+.dinit                       0x6e2                0x10            0x18  (24)
 
-                     Total program memory used (bytes):          0x6ae  (1710) 2%
+                     Total program memory used (bytes):          0x76b  (1899) 2%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
@@ -82,10 +82,10 @@ reserve_data_0x820           0x820                 0x2             0x2  (2)
 reserve_data_0x822           0x822                 0x2             0x2  (2)
 reserve_data_0x824           0x824                 0x2             0x2  (2)
 reserve_data_0x826           0x826                0x2a            0x2a  (42)
-.ndata                       0x850                   0            0x12  (18)
-.nbss                        0x862                   0             0x4  (4)
+.nbss                        0x850                   0            0x16  (22)
+.ndata                       0x866                   0             0x2  (2)
 
-                        Total data memory used (bytes):           0x66  (102) 1%
+                        Total data memory used (bytes):           0x68  (104) 1%
 
 
 Dynamic Memory Usage
@@ -93,23 +93,23 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x866                              0x1f9a  (8090)
+stack                        0x868                              0x1f98  (8088)
 
-                        Maximum dynamic memory (bytes):         0x1f9a  (8090)
+                        Maximum dynamic memory (bytes):         0x1f98  (8088)
 
 
 External Symbols in Data Memory (by address):
 
-                    0x0850                  _keyToWrite
-                    0x0851                  _keys
-                    0x0862                  _curState
+                    0x0850                  _curState
+                    0x0852                  _keys
                     0x0864                  _keysIndex
+                    0x0866                  _keyToWrite
 
 External Symbols in Data Memory (by name):
 
-                    0x0862                  _curState
-                    0x0850                  _keyToWrite
-                    0x0851                  _keys
+                    0x0850                  _curState
+                    0x0866                  _keyToWrite
+                    0x0852                  _keys
                     0x0864                  _keysIndex
 
 External Symbols in Program Memory (by address):
@@ -119,42 +119,44 @@ External Symbols in Program Memory (by address):
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00029a                  __DefaultInterrupt
-                  0x00029e                  _initKeypad
-                  0x0002ca                  _scanKeypad
-                  0x000400                  _writeFourBits
-                  0x000456                  _writeLCD
-                  0x000476                  _printCharLCD
-                  0x000488                  _initLCD
-                  0x0004e2                  _printStringLCD
-                  0x00050a                  _clearLCD
-                  0x000518                  _moveCursorLCD
-                  0x00054a                  _main
-                  0x0005ac                  __CNInterrupt
-                  0x0005de                  _delayUs
-                  0x00060e                  _delayMs
-                  0x00063e                  _initTimer1
+                  0x00029e                  _writeFourBits
+                  0x0002f4                  _writeLCD
+                  0x000314                  _printCharLCD
+                  0x000326                  _initLCD
+                  0x000380                  _printStringLCD
+                  0x0003a8                  _clearLCD
+                  0x0003b6                  _moveCursorLCD
+                  0x0003e8                  _clearPrintStringLCD
+                  0x00042e                  _initKeypad
+                  0x00045a                  _scanKeypad
+                  0x000596                  _main
+                  0x000600                  __CNInterrupt
+                  0x000666                  _delayUs
+                  0x000696                  _delayMs
+                  0x0006c6                  _initTimer1
 
 External Symbols in Program Memory (by name):
 
-                  0x0005ac                  __CNInterrupt
+                  0x000600                  __CNInterrupt
                   0x00029a                  __DefaultInterrupt
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x00050a                  _clearLCD
-                  0x00060e                  _delayMs
-                  0x0005de                  _delayUs
-                  0x00029e                  _initKeypad
-                  0x000488                  _initLCD
-                  0x00063e                  _initTimer1
-                  0x00054a                  _main
-                  0x000518                  _moveCursorLCD
-                  0x000476                  _printCharLCD
-                  0x0004e2                  _printStringLCD
-                  0x0002ca                  _scanKeypad
-                  0x000400                  _writeFourBits
-                  0x000456                  _writeLCD
+                  0x0003a8                  _clearLCD
+                  0x0003e8                  _clearPrintStringLCD
+                  0x000696                  _delayMs
+                  0x000666                  _delayUs
+                  0x00042e                  _initKeypad
+                  0x000326                  _initLCD
+                  0x0006c6                  _initTimer1
+                  0x000596                  _main
+                  0x0003b6                  _moveCursorLCD
+                  0x000314                  _printCharLCD
+                  0x000380                  _printStringLCD
+                  0x00045a                  _scanKeypad
+                  0x00029e                  _writeFourBits
+                  0x0002f4                  _writeLCD
 
 Memory Configuration
 
@@ -255,41 +257,41 @@ __CONFIG1         0x00abfe          0x2
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x1f98
+.debug_info       0x000000       0x2157
  *(.debug_info)
  .debug_info      0x000000       0x101a build/default/debug/keypad.o
- .debug_info      0x00101a        0x5be build/default/debug/lcd.o
- .debug_info      0x0015d8        0x672 build/default/debug/timer.o
- .debug_info      0x001c4a        0x34e build/default/debug/lab2p1.o
+ .debug_info      0x00101a        0x5fe build/default/debug/lcd.o
+ .debug_info      0x001618        0x672 build/default/debug/timer.o
+ .debug_info      0x001c8a        0x4cd build/default/debug/lab2p1.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x3f8
+.debug_abbrev     0x000000        0x43a
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xe7 build/default/debug/keypad.o
  .debug_abbrev    0x0000e7         0xe2 build/default/debug/lcd.o
  .debug_abbrev    0x0001c9        0x12f build/default/debug/timer.o
- .debug_abbrev    0x0002f8        0x100 build/default/debug/lab2p1.o
+ .debug_abbrev    0x0002f8        0x142 build/default/debug/lab2p1.o
 
-.debug_line       0x000000        0x886
+.debug_line       0x000000        0x920
  *(.debug_line)
- .debug_line      0x000000        0x321 build/default/debug/keypad.o
- .debug_line      0x000321        0x268 build/default/debug/lcd.o
- .debug_line      0x000589        0x18a build/default/debug/timer.o
- .debug_line      0x000713        0x173 build/default/debug/lab2p1.o
+ .debug_line      0x000000        0x339 build/default/debug/keypad.o
+ .debug_line      0x000339        0x2d2 build/default/debug/lcd.o
+ .debug_line      0x00060b        0x18a build/default/debug/timer.o
+ .debug_line      0x000795        0x18b build/default/debug/lab2p1.o
 
-.debug_frame      0x000000        0x130
+.debug_frame      0x000000        0x140
  *(.debug_frame)
  .debug_frame     0x000000         0x34 build/default/debug/keypad.o
- .debug_frame     0x000034         0x84 build/default/debug/lcd.o
- .debug_frame     0x0000b8         0x44 build/default/debug/timer.o
- .debug_frame     0x0000fc         0x34 build/default/debug/lab2p1.o
+ .debug_frame     0x000034         0x94 build/default/debug/lcd.o
+ .debug_frame     0x0000c8         0x44 build/default/debug/timer.o
+ .debug_frame     0x00010c         0x34 build/default/debug/lab2p1.o
 
-.debug_str        0x000000         0xe8
+.debug_str        0x000000         0xf2
  *(.debug_str)
  .debug_str       0x000000         0x7c build/default/debug/keypad.o
  .debug_str       0x00007c         0x2a build/default/debug/lcd.o
  .debug_str       0x0000a6         0x26 build/default/debug/timer.o
- .debug_str       0x0000cc         0x1c build/default/debug/lab2p1.o
+ .debug_str       0x0000cc         0x26 build/default/debug/lab2p1.o
 
 .debug_loc
  *(.debug_loc)
@@ -298,16 +300,16 @@ __CONFIG1         0x00abfe          0x2
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x162
+                  0x000000        0x17a
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x30 build/default/debug/keypad.o
  .debug_pubnames
-                  0x000030         0x80 build/default/debug/lcd.o
+                  0x000030         0x98 build/default/debug/lcd.o
  .debug_pubnames
-                  0x0000b0         0x39 build/default/debug/timer.o
+                  0x0000c8         0x39 build/default/debug/timer.o
  .debug_pubnames
-                  0x0000e9         0x79 build/default/debug/lab2p1.o
+                  0x000101         0x79 build/default/debug/lab2p1.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -351,7 +353,7 @@ __CONFIG1         0x00abfe          0x2
                   0x000034          0x4 LONG 0x29a DEFINED (__SI2C1Interrupt)?ABSOLUTE (__SI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000036          0x4 LONG 0x29a DEFINED (__MI2C1Interrupt)?ABSOLUTE (__MI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000038          0x4 LONG 0x29a DEFINED (__CompInterrupt)?ABSOLUTE (__CompInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00003a          0x4 LONG 0x5ac DEFINED (__CNInterrupt)?ABSOLUTE (__CNInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00003a          0x4 LONG 0x600 DEFINED (__CNInterrupt)?ABSOLUTE (__CNInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00003c          0x4 LONG 0x29a DEFINED (__INT1Interrupt)?ABSOLUTE (__INT1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00003e          0x4 LONG 0x29a DEFINED (__Interrupt21)?ABSOLUTE (__Interrupt21):ABSOLUTE (__DefaultInterrupt)
                   0x000040          0x4 LONG 0x29a DEFINED (__Interrupt22)?ABSOLUTE (__Interrupt22):ABSOLUTE (__DefaultInterrupt)
@@ -479,7 +481,7 @@ __CONFIG1         0x00abfe          0x2
                   0x000134          0x4 LONG 0x29a DEFINED (__AltSI2C1Interrupt)?ABSOLUTE (__AltSI2C1Interrupt):DEFINED (__SI2C1Interrupt)?ABSOLUTE (__SI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000136          0x4 LONG 0x29a DEFINED (__AltMI2C1Interrupt)?ABSOLUTE (__AltMI2C1Interrupt):DEFINED (__MI2C1Interrupt)?ABSOLUTE (__MI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000138          0x4 LONG 0x29a DEFINED (__AltCompInterrupt)?ABSOLUTE (__AltCompInterrupt):DEFINED (__CompInterrupt)?ABSOLUTE (__CompInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00013a          0x4 LONG 0x5ac DEFINED (__AltCNInterrupt)?ABSOLUTE (__AltCNInterrupt):DEFINED (__CNInterrupt)?ABSOLUTE (__CNInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00013a          0x4 LONG 0x600 DEFINED (__AltCNInterrupt)?ABSOLUTE (__AltCNInterrupt):DEFINED (__CNInterrupt)?ABSOLUTE (__CNInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00013c          0x4 LONG 0x29a DEFINED (__AltINT1Interrupt)?ABSOLUTE (__AltINT1Interrupt):DEFINED (__INT1Interrupt)?ABSOLUTE (__INT1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00013e          0x4 LONG 0x29a DEFINED (__AltInterrupt21)?ABSOLUTE (__AltInterrupt21):DEFINED (__Interrupt21)?ABSOLUTE (__Interrupt21):ABSOLUTE (__DefaultInterrupt)
                   0x000140          0x4 LONG 0x29a DEFINED (__AltInterrupt22)?ABSOLUTE (__AltInterrupt22):DEFINED (__Interrupt22)?ABSOLUTE (__Interrupt22):ABSOLUTE (__DefaultInterrupt)
@@ -1164,7 +1166,7 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x000060        0x2c0
+                  0x000060        0x2df
  .debug_pubtypes
                   0x000060        0x199 build/default/debug/keypad.o
  .debug_pubtypes
@@ -1172,52 +1174,53 @@ LOAD data_init
  .debug_pubtypes
                   0x000247         0x8a build/default/debug/timer.o
  .debug_pubtypes
-                  0x0002d1         0x4f build/default/debug/lab2p1.o
+                  0x0002d1         0x6e build/default/debug/lab2p1.o
 
 __c30_signature
-                  0x000320         0x24
+                  0x000340         0x24
  __c30_signature
-                  0x000320          0x6 build/default/debug/keypad.o
+                  0x000340          0x6 build/default/debug/keypad.o
  __c30_signature
-                  0x000326          0x6 build/default/debug/lcd.o
+                  0x000346          0x6 build/default/debug/lcd.o
  __c30_signature
-                  0x00032c          0x6 build/default/debug/timer.o
+                  0x00034c          0x6 build/default/debug/timer.o
  __c30_signature
-                  0x000332          0x6 build/default/debug/lab2p1.o
+                  0x000352          0x6 build/default/debug/lab2p1.o
  __c30_signature
-                  0x000338          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
+                  0x000358          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x00033e          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
+                  0x00035e          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
 
-.ndata              0x0850         0x12
- .ndata             0x0850         0x12 build/default/debug/lab2p1.o
-                    0x0850                  _keyToWrite
-                    0x0851                  _keys
-
-.nbss               0x0862          0x4
- .nbss              0x0862          0x4 build/default/debug/lab2p1.o
-                    0x0862                  _curState
+.nbss               0x0850         0x16
+ .nbss              0x0850         0x16 build/default/debug/lab2p1.o
+                    0x0850                  _curState
+                    0x0852                  _keys
                     0x0864                  _keysIndex
 
-.text             0x00029e        0x3bc
- .text            0x00029e        0x162 build/default/debug/keypad.o
-                  0x00029e                  _initKeypad
-                  0x0002ca                  _scanKeypad
- .text            0x000400        0x14a build/default/debug/lcd.o
-                  0x000400                  _writeFourBits
-                  0x000456                  _writeLCD
-                  0x000476                  _printCharLCD
-                  0x000488                  _initLCD
-                  0x0004e2                  _printStringLCD
-                  0x00050a                  _clearLCD
-                  0x000518                  _moveCursorLCD
- .text            0x00054a         0x94 build/default/debug/lab2p1.o
-                  0x00054a                  _main
-                  0x0005ac                  __CNInterrupt
- .text            0x0005de         0x7c build/default/debug/timer.o
-                  0x0005de                  _delayUs
-                  0x00060e                  _delayMs
-                  0x00063e                  _initTimer1
+.ndata              0x0866          0x2
+ .ndata             0x0866          0x2 build/default/debug/lab2p1.o
+                    0x0866                  _keyToWrite
 
-.dinit            0x00065a         0x1a
- .dinit           0x00065a         0x1a data_init
+.text             0x00029e        0x444
+ .text            0x00029e        0x190 build/default/debug/lcd.o
+                  0x00029e                  _writeFourBits
+                  0x0002f4                  _writeLCD
+                  0x000314                  _printCharLCD
+                  0x000326                  _initLCD
+                  0x000380                  _printStringLCD
+                  0x0003a8                  _clearLCD
+                  0x0003b6                  _moveCursorLCD
+                  0x0003e8                  _clearPrintStringLCD
+ .text            0x00042e        0x168 build/default/debug/keypad.o
+                  0x00042e                  _initKeypad
+                  0x00045a                  _scanKeypad
+ .text            0x000596         0xd0 build/default/debug/lab2p1.o
+                  0x000596                  _main
+                  0x000600                  __CNInterrupt
+ .text            0x000666         0x7c build/default/debug/timer.o
+                  0x000666                  _delayUs
+                  0x000696                  _delayMs
+                  0x0006c6                  _initTimer1
+
+.dinit            0x0006e2         0x10
+ .dinit           0x0006e2         0x10 data_init

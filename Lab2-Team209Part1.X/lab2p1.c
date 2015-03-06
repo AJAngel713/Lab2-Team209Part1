@@ -26,10 +26,9 @@ typedef enum stateTypeEnum
 }stateType;
 
 volatile stateType curState;
-char keyToWrite = -1;
-char keys[17] = {-1,'\0','\0','\0','\0','\0','\0','\0',
+volatile char keys[17] = {'\0','\0','\0','\0','\0','\0','\0','\0',
                 '\0','\0','\0','\0','\0','\0','\0','\0','\0'};
-int keysIndex = 0;
+volatile int keysIndex = 0;
 
 int main(void)
 {
@@ -52,7 +51,7 @@ int main(void)
                 break;
 
             case writeLCDs:
-                if (keys[keysIndex] != -1){
+                if (keys[keysIndex-1] != -1){
                     clearPrintStringLCD(keys);
                     if (keysIndex == 16) keysIndex = 0;
 //                    printCharLCD(keyToWrite);
@@ -76,8 +75,16 @@ void _ISR _CNInterrupt(){
 
  
     if (curState == wait){
-        if (COL1 == 0 || COL2 == 0 || COL3 == 0)
-        curState = keyFind;
+        if (COL1 == 0 || COL2 == 0 || COL3 == 0){
+//        curState = keyFind;
+            /*
+             NOTE: I can use the statement right above this, but the program breaks more often by pressing keys fast and simultaneously.
+             * By scanning the keys here in the interrupt it no longer breaks.
+             */
+            keys[keysIndex] = scanKeypad();
+                keysIndex++;
+                curState = writeLCDs;
+        }
     }
 
 } // _CNInterrupt
